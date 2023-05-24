@@ -3,6 +3,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 choco feature enable -n allowGlobalConfirmation
 choco install microsoft-openjdk -y
+choco install jenkins -y
 
 New-NetFirewallRule -Name api -DisplayName 'api' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 8080
 Restart-Computer

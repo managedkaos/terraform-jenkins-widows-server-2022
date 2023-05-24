@@ -76,7 +76,7 @@ jobs:
         run: |
           terraform plan -input=false -no-color -out=tfplan
           terraform show -no-color tfplan > plan.txt
-          
+
       - name: Display the plan summary
         id: display
         run: |
@@ -146,6 +146,7 @@ jobs:
           {
             terraform apply -no-color -auto-approve -input=false || exit 1;
           } > apply.txt
+          cat apply.txt
 
       - name: Display the apply summary
         id: display
