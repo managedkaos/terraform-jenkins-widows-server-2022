@@ -21,6 +21,6 @@ try {
     Write-Host "Error setting parameter: $_"
 }
 
-New-NetFirewallRule -Name api -DisplayName 'api' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 8080
+New-NetFirewallRule -Name jenkins -DisplayName 'jenkins' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 8080
 Restart-Computer
 </powershell>
