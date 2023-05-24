@@ -40,7 +40,7 @@ resource "aws_security_group_rule" "ec2-egress" {
 
 resource "aws_instance" "ec2" {
   for_each                    = local.host
-  ami                         = data.aws_ami.ubuntu.id
+  ami                         = data.aws_ami.ami.id
   instance_type               = var.instance_type
   vpc_security_group_ids      = [aws_security_group.ec2.id]
   iam_instance_profile        = aws_iam_instance_profile.iam[each.value.name].name
