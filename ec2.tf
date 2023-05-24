@@ -58,7 +58,7 @@ resource "aws_instance" "ec2" {
   tags                        = merge(local.tags, { Name = each.value.name })
   associate_public_ip_address = true
 
-  user_data = templatefile("${path.module}/user_data.template",
+  user_data = templatefile("${path.module}/user_data.template.ps1",
     {
       name = each.value.name
     }
