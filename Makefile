@@ -13,3 +13,8 @@ upgrade:
 update:
 	terraform get -update
 
+getpassword:
+	 aws ssm get-parameter \
+		 --name "/jenkins-windows-0/initialAdminPassword" \
+		 --query="Parameter.Value" \
+		 --output=text
