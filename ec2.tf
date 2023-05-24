@@ -4,6 +4,17 @@ resource "aws_security_group" "ec2" {
   tags        = merge(var.tags, local.tags, { Resource = "EC2" })
 }
 
+resource "aws_security_group_rule" "ec2-rdp" {
+  security_group_id = aws_security_group.ec2.id
+  type              = "ingress"
+  to_port           = 3389
+  from_port         = 3389
+  protocol          = "6"
+  cidr_blocks       = ["0.0.0.0/0"]
+  description       = "RDP Ingress for ${var.name}-${var.environment}"
+  ipv6_cidr_blocks  = []
+}
+
 resource "aws_security_group_rule" "ec2-http" {
   security_group_id = aws_security_group.ec2.id
   type              = "ingress"
