@@ -2,7 +2,7 @@
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 choco feature enable -n allowGlobalConfirmation
-choco install dotnetcore dotnet4.7.2 -y
+choco install dotnetcore dotnet -y
 choco install microsoft-openjdk -y
 choco install jenkins -y
 choco install docker-engine -y
